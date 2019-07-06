@@ -1,0 +1,1 @@
+try {alert(JSON.stringify(new Cosmos.Enum("foo", "bar.baz", "test", "bar.test")));}catch(e){alert(e.name + ": " + e.message);}
