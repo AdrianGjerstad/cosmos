@@ -1,14 +1,11 @@
 try {
-  let dict = Cm.Dictionary.loadJSON(
-    {length_:2,en_US:{length_:2,lang_:0,hello:"Hello",bye:"Bye"},es_MX:{length_:2,lang_:1,hello:"Hola",bye:"Adios"}}
-  );
+  let wl = new Cm.Whitelist(["foo", "baz"]);
+  alert(wl.test("foo") + " " + wl.test("bar") + " " + wl.test("baz"));
+  // true false true
 
-  dict.setLanguage("en_US");
-
-  alert(dict.read("hello") + " " + dict.read("bye"));
-  dict.setLanguage("es_MX");
-  alert(dict.read("hello") + " " + dict.read("bye"));
-  alert(dict.languageCount() + " " + dict.keyCount());
+  let bl = new Cm.Blacklist(["foo"]);
+  alert(bl.test("foo") + " " + bl.test("bar") + " " + bl.test("baz"));
+  // false true true
 } catch(e) {
   alert("Oops! An error occured!\n" + e.name + ": " + e.message);
 }
