@@ -1,11 +1,13 @@
 try {
-  let timer = new Cm.Timer();
-  timer.step();
+  let index = 0;
+  let ticking_engine = new Cm.TickingEngine(function() {
+    index++;
+  }, 60);
+  ticking_engine.start();
 
   setTimeout(function() {
-    timer.step();
-    alert("0s - " + timer.time + "s");
-  }, 3140); // 1000ms, change as you want.
+    alert("Called " + index + " times");
+  }, 1000);
 } catch(e) {
   alert("Oops! An error occured!\n" + e.name + ": " + e.message);
 }
