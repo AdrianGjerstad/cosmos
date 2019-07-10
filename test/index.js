@@ -1,15 +1,18 @@
 try {
-  /*let index = 0;
-  let ticking_engine = new Cm.TickingEngine(function() {
-    index++;
-  }, 60);
-  ticking_engine.start();
+  let ui = 0;
+  let ri = 0;
+  let engine = new Cm.GameEngine(
+  function(d) {
+    ui++;
+  },
+  function(r, d) {
+    ri++;
+  },
+  60);
+  engine.start();
 
   setTimeout(function() {
-    alert("Called " + index + " times");
-  }, 1000);*/
-  setTimeout(function() {
-    Cm.alert("foo", "bar");
+    Cm.alert("Test:", ui + "/60 " + ri + "/60");
   }, 1000);
 } catch(e) {
   alert("Oops! An error occured!\n" + e.name + ": " + e.message);
