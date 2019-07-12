@@ -1,19 +1,14 @@
 try {
-  let ui = 0;
-  let ri = 0;
   let engine = new Cm.GameEngine(
   function(d) {
-    ui++;
+
   },
   function(r, d) {
-    ri++;
+    r.background(200);
+    r.rect(10, 10, 50, 50, 10);
   },
   60);
   engine.start();
-
-  setTimeout(function() {
-    Cm.alert("Test:", ui + "/60 " + ri + "/60");
-  }, 1000);
 } catch(e) {
   alert("Oops! An error occured!\n" + e.name + ": " + e.message);
 }
