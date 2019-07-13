@@ -11,8 +11,8 @@ try {
     },
     function(r, d) {
       r.background(200);
-      r.translate(r.w/2, r.h/2);
-      r.rotate(Math.PI/4);
+      r.translate(r.w, r.h);
+      r.rotate(Math.PI);
       r.image(testImage, 0, 0);
     },
     60, 512, 512);
