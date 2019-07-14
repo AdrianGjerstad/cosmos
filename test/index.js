@@ -1,8 +1,6 @@
-let testImageSrc = "../cosmos.png";
-let testImage;
+let testFont;
 Cosmos.mediaLoader = function() {
-  testImage = Cosmos.loadImage(testImageSrc);
-  Cm.alertOfError(()=>{throw new Error("foo");});
+  testFont = Cosmos.Font("serif", 16);
 };
 Cosmos.ready = function() {
   let engine = new Cosmos.GameEngine(
@@ -11,9 +9,9 @@ Cosmos.ready = function() {
   },
   function(r, d) {
     r.background(200);
-    r.translate(r.w, r.h);
-    r.rotate(Math.PI);
-    r.image(testImage, 0, 0);
+    r.font(testFont, true);
+    r.text(255, 0, 0);
+    Cosmos.alertOfError(()=>{r.drawText("Hello, World!", 50, 50)});
   },
   60, 512, 512);
   engine.r.border();
